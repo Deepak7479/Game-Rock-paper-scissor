@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Result</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Game Over</h1>
+        <div id="final-result">
+            <p id="final-message"></p>
+        </div>
+        <button onclick="playAgain()">Play Again</button>
+    </div>
+    <button id="rulebook">Rule</button>
+    <script>
+        const userScore = localStorage.getItem('userScore') || 0;
+        const computerScore = localStorage.getItem('computerScore') || 0;
+        const finalMessageElement = document.getElementById('final-message');
+
+        if (userScore > computerScore) {
+            finalMessageElement.textContent = 'Congratulations! You are the winner!';
+        } else if (userScore < computerScore) {
+            finalMessageElement.textContent = 'You lost to the computer. Better luck next time!';
+        } else {
+            finalMessageElement.textContent = 'It\'s a tie!';
+        }
+
+        function playAgain() {
+            localStorage.clear();
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

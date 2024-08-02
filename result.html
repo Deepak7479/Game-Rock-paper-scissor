@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round Result</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Round Result</h1>
+        <div id="scoreboard">
+            <div id="user-label" class="badge">User</div>
+            <div id="computer-label" class="badge">Computer</div>
+            <span id="user-score">0</span>:<span id="computer-score">0</span>
+        </div>
+        <div id="round-result">
+            <p id="round-message"></p>
+        </div>
+        <button onclick="playAgain()">Play Again</button>
+    </div>
+    <button id="rulebook">Rule</button>
+    <script>
+        const userScore = localStorage.getItem('userScore') || 0;
+        const computerScore = localStorage.getItem('computerScore') || 0;
+        const roundMessage = localStorage.getItem('roundMessage');
+        const userScoreElement = document.getElementById('user-score');
+        const computerScoreElement = document.getElementById('computer-score');
+        const roundMessageElement = document.getElementById('round-message');
+
+        userScoreElement.textContent = userScore;
+        computerScoreElement.textContent = computerScore;
+        roundMessageElement.textContent = roundMessage;
+
+        function playAgain() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
